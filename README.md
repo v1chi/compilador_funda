@@ -6,18 +6,18 @@
 
 Gramática utilizada:
 
-2. **Declaraciones**:
+1. **Declaraciones**:
    - **Declaración de variables**: Permite declarar variables tipo `number` (entero), `decimal`(float) y `text`(string).
    - **Declaración de funciones**: Define funciones con parámetros y un cuerpo de declaraciones (function).
    - **Condicionales**: Utiliza `when` para evaluar condiciones y `else` para manejar el caso contrario.
    - **Bucles**: Utiliza `loop` para iterar sobre un rango de valores.
    - **Salida**: Utiliza `out` para imprimir valores.
 
-3. **Expresiones**:
+2. **Expresiones**:
    - **Aritméticas**: Soporta suma, resta, multiplicación, división y módulo.
    - **Lógicas**: Soporta comparaciones (`>`, `<` y `==`) y operaciones lógicas (`and` y `or`).
 
-4. **Llamadas a funciones**:
+3. **Llamadas a funciones**:
    - Permite llamar a funciones con argumentos.
 
 ## Explicación de la Estructura Interna del Compilador
@@ -30,10 +30,6 @@ Gramática utilizada:
 
 3. **Interpreter**:
    - Ejecuta el código representado por el AST, para manejar la declaración, evaluación y ejecución de variables y funciones.
-
-   ## Sintaxis del Compilador
-
-### Declaración de Variables
 
 ## Sintaxis del Compilador
 
@@ -70,10 +66,12 @@ when resultado > 20 {
 
 
 - **Bucle For**:
-number suma = 0;
+number i = 0;
 loop i (1, 10) {
-    suma = suma + i;
+    out i;
 }
+
+En este caso la variable i parte siendo 1 y va aumentando de 1 en 1 hasta llegar a 10, i siempre tiene que declararse e inicializarse antes de la sentencia loop
 
 - **Salida de Datos**:
 out resultado;
