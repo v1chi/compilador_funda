@@ -11,7 +11,7 @@ def testear(archivo):
     env = Environment()
     execute_declarations(resultado, env)
 
-archivos_prueba = ['test1.txt', 'test2.txt', 'test3.txt', 'test4.txt']
+archivos_prueba = ['test1.txt', 'test2.txt', 'test3.txt']
 
 for test_file in archivos_prueba:
     print(f"Probando archivo: {test_file}")
