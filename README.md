@@ -1,5 +1,7 @@
 # Documentación del Compilador
 
+## Integrantes: María Victoria Quiroga y Constanza Vazquez
+
 ## Descripción de la Gramática del Lenguaje
 
 Gramática utilizada:
