@@ -52,6 +52,7 @@ function suma(number a, number b) {
     return resultado;
 }
 
+Las variables utilizadas en la función tienen que ser pasadas como parámetros o declaradas dentro de la misma.
 
 - **Llamada a Funciones**:
 number resultado = suma(10, 20);
