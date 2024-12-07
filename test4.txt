@@ -1,3 +1,0 @@
-number x = 5;
-text saludo = "Hola";
-number resultado = x + saludo; 
