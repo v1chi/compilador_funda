@@ -4,9 +4,6 @@
 
 Gramática utilizada:
 
-1. **Programa**:
-   - Un programa consiste en una lista de declaraciones.
-
 2. **Declaraciones**:
    - **Declaración de variables**: Permite declarar variables tipo `number` (entero), `decimal`(float) y `text`(string).
    - **Declaración de funciones**: Define funciones con parámetros y un cuerpo de declaraciones (function).
