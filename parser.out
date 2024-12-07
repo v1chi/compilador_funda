@@ -1,0 +1,2028 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    LAMBDA
+    NOT
+
+Grammar
+
+Rule 0     S' -> program
+Rule 1     program -> declarations
+Rule 2     declarations -> declaration
+Rule 3     declarations -> declarations declaration
+Rule 4     declaration -> variable_declaration
+Rule 5     declaration -> function_declaration
+Rule 6     declaration -> conditional
+Rule 7     declaration -> loop
+Rule 8     declaration -> output
+Rule 9     variable_declaration -> INTEGER_TYPE ID ASSIGN expression SEMI
+Rule 10    variable_declaration -> FLOAT_TYPE ID ASSIGN expression SEMI
+Rule 11    variable_declaration -> STRING_TYPE ID ASSIGN TXT SEMI
+Rule 12    function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE declarations return_statement RBRACE
+Rule 13    function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE declarations RBRACE
+Rule 14    parameters -> parameter
+Rule 15    parameters -> parameters COMA parameter
+Rule 16    parameters -> empty
+Rule 17    parameter -> INTEGER_TYPE ID
+Rule 18    parameter -> FLOAT_TYPE ID
+Rule 19    parameter -> STRING_TYPE ID
+Rule 20    return_statement -> RETURN expression SEMI
+Rule 21    conditional -> WHEN logical_expression LBRACE declarations RBRACE ELSE LBRACE declarations RBRACE
+Rule 22    conditional -> WHEN logical_expression LBRACE declarations RBRACE
+Rule 23    loop -> LOOP ID LPAREN expression COMA expression RPAREN LBRACE declarations RBRACE
+Rule 24    output -> OUT expression SEMI
+Rule 25    output -> OUT TXT SEMI
+Rule 26    expression -> term
+Rule 27    expression -> expression PLUS term
+Rule 28    expression -> expression MINUS term
+Rule 29    expression -> function_call
+Rule 30    function_call -> ID LPAREN arguments RPAREN
+Rule 31    arguments -> expression
+Rule 32    arguments -> arguments COMA expression
+Rule 33    arguments -> empty
+Rule 34    term -> factor
+Rule 35    term -> term TIMES factor
+Rule 36    term -> term DIVIDE factor
+Rule 37    term -> term MOD factor
+Rule 38    factor -> NUM
+Rule 39    factor -> DEC
+Rule 40    factor -> ID
+Rule 41    factor -> LPAREN expression RPAREN
+Rule 42    comparison -> expression GT expression
+Rule 43    comparison -> expression LT expression
+Rule 44    comparison -> expression EQ expression
+Rule 45    logical_expression -> comparison
+Rule 46    logical_expression -> logical_expression OR comparison
+Rule 47    logical_expression -> logical_expression AND comparison
+Rule 48    empty -> <empty>
+
+Terminals, with rules where they appear
+
+AND                  : 47
+ASSIGN               : 9 10 11
+COMA                 : 15 23 32
+DEC                  : 39
+DIVIDE               : 36
+ELSE                 : 21
+EQ                   : 44
+FLOAT_TYPE           : 10 18
+FUNCTION             : 12 13
+GT                   : 42
+ID                   : 9 10 11 12 13 17 18 19 23 30 40
+INTEGER_TYPE         : 9 17
+LAMBDA               : 
+LBRACE               : 12 13 21 21 22 23
+LOOP                 : 23
+LPAREN               : 12 13 23 30 41
+LT                   : 43
+MINUS                : 28
+MOD                  : 37
+NOT                  : 
+NUM                  : 38
+OR                   : 46
+OUT                  : 24 25
+PLUS                 : 27
+RBRACE               : 12 13 21 21 22 23
+RETURN               : 20
+RPAREN               : 12 13 23 30 41
+SEMI                 : 9 10 11 20 24 25
+STRING_TYPE          : 11 19
+TIMES                : 35
+TXT                  : 11 25
+WHEN                 : 21 22
+error                : 
+
+Nonterminals, with rules where they appear
+
+arguments            : 30 32
+comparison           : 45 46 47
+conditional          : 6
+declaration          : 2 3
+declarations         : 1 3 12 13 21 21 22 23
+empty                : 16 33
+expression           : 9 10 20 23 23 24 27 28 31 32 41 42 42 43 43 44 44
+factor               : 34 35 36 37
+function_call        : 29
+function_declaration : 5
+logical_expression   : 21 22 46 47
+loop                 : 7
+output               : 8
+parameter            : 14 15
+parameters           : 12 13 15
+program              : 0
+return_statement     : 12
+term                 : 26 27 28 35 36 37
+variable_declaration : 4
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . program
+    (1) program -> . declarations
+    (2) declarations -> . declaration
+    (3) declarations -> . declarations declaration
+    (4) declaration -> . variable_declaration
+    (5) declaration -> . function_declaration
+    (6) declaration -> . conditional
+    (7) declaration -> . loop
+    (8) declaration -> . output
+    (9) variable_declaration -> . INTEGER_TYPE ID ASSIGN expression SEMI
+    (10) variable_declaration -> . FLOAT_TYPE ID ASSIGN expression SEMI
+    (11) variable_declaration -> . STRING_TYPE ID ASSIGN TXT SEMI
+    (12) function_declaration -> . FUNCTION ID LPAREN parameters RPAREN LBRACE declarations return_statement RBRACE
+    (13) function_declaration -> . FUNCTION ID LPAREN parameters RPAREN LBRACE declarations RBRACE
+    (21) conditional -> . WHEN logical_expression LBRACE declarations RBRACE ELSE LBRACE declarations RBRACE
+    (22) conditional -> . WHEN logical_expression LBRACE declarations RBRACE
+    (23) loop -> . LOOP ID LPAREN expression COMA expression RPAREN LBRACE declarations RBRACE
+    (24) output -> . OUT expression SEMI
+    (25) output -> . OUT TXT SEMI
+
+    INTEGER_TYPE    shift and go to state 9
+    FLOAT_TYPE      shift and go to state 10
+    STRING_TYPE     shift and go to state 11
+    FUNCTION        shift and go to state 12
+    WHEN            shift and go to state 13
+    LOOP            shift and go to state 14
+    OUT             shift and go to state 15
+
+    program                        shift and go to state 1
+    declarations                   shift and go to state 2
+    declaration                    shift and go to state 3
+    variable_declaration           shift and go to state 4
+    function_declaration           shift and go to state 5
+    conditional                    shift and go to state 6
+    loop                           shift and go to state 7
+    output                         shift and go to state 8
+
+state 1
+
+    (0) S' -> program .
+
+
+
+state 2
+
+    (1) program -> declarations .
+    (3) declarations -> declarations . declaration
+    (4) declaration -> . variable_declaration
+    (5) declaration -> . function_declaration
+    (6) declaration -> . conditional
+    (7) declaration -> . loop
+    (8) declaration -> . output
+    (9) variable_declaration -> . INTEGER_TYPE ID ASSIGN expression SEMI
+    (10) variable_declaration -> . FLOAT_TYPE ID ASSIGN expression SEMI
+    (11) variable_declaration -> . STRING_TYPE ID ASSIGN TXT SEMI
+    (12) function_declaration -> . FUNCTION ID LPAREN parameters RPAREN LBRACE declarations return_statement RBRACE
+    (13) function_declaration -> . FUNCTION ID LPAREN parameters RPAREN LBRACE declarations RBRACE
+    (21) conditional -> . WHEN logical_expression LBRACE declarations RBRACE ELSE LBRACE declarations RBRACE
+    (22) conditional -> . WHEN logical_expression LBRACE declarations RBRACE
+    (23) loop -> . LOOP ID LPAREN expression COMA expression RPAREN LBRACE declarations RBRACE
+    (24) output -> . OUT expression SEMI
+    (25) output -> . OUT TXT SEMI
+
+    $end            reduce using rule 1 (program -> declarations .)
+    INTEGER_TYPE    shift and go to state 9
+    FLOAT_TYPE      shift and go to state 10
+    STRING_TYPE     shift and go to state 11
+    FUNCTION        shift and go to state 12
+    WHEN            shift and go to state 13
+    LOOP            shift and go to state 14
+    OUT             shift and go to state 15
+
+    declaration                    shift and go to state 16
+    variable_declaration           shift and go to state 4
+    function_declaration           shift and go to state 5
+    conditional                    shift and go to state 6
+    loop                           shift and go to state 7
+    output                         shift and go to state 8
+
+state 3
+
+    (2) declarations -> declaration .
+
+    INTEGER_TYPE    reduce using rule 2 (declarations -> declaration .)
+    FLOAT_TYPE      reduce using rule 2 (declarations -> declaration .)
+    STRING_TYPE     reduce using rule 2 (declarations -> declaration .)
+    FUNCTION        reduce using rule 2 (declarations -> declaration .)
+    WHEN            reduce using rule 2 (declarations -> declaration .)
+    LOOP            reduce using rule 2 (declarations -> declaration .)
+    OUT             reduce using rule 2 (declarations -> declaration .)
+    $end            reduce using rule 2 (declarations -> declaration .)
+    RBRACE          reduce using rule 2 (declarations -> declaration .)
+    RETURN          reduce using rule 2 (declarations -> declaration .)
+
+
+state 4
+
+    (4) declaration -> variable_declaration .
+
+    INTEGER_TYPE    reduce using rule 4 (declaration -> variable_declaration .)
+    FLOAT_TYPE      reduce using rule 4 (declaration -> variable_declaration .)
+    STRING_TYPE     reduce using rule 4 (declaration -> variable_declaration .)
+    FUNCTION        reduce using rule 4 (declaration -> variable_declaration .)
+    WHEN            reduce using rule 4 (declaration -> variable_declaration .)
+    LOOP            reduce using rule 4 (declaration -> variable_declaration .)
+    OUT             reduce using rule 4 (declaration -> variable_declaration .)
+    $end            reduce using rule 4 (declaration -> variable_declaration .)
+    RBRACE          reduce using rule 4 (declaration -> variable_declaration .)
+    RETURN          reduce using rule 4 (declaration -> variable_declaration .)
+
+
+state 5
+
+    (5) declaration -> function_declaration .
+
+    INTEGER_TYPE    reduce using rule 5 (declaration -> function_declaration .)
+    FLOAT_TYPE      reduce using rule 5 (declaration -> function_declaration .)
+    STRING_TYPE     reduce using rule 5 (declaration -> function_declaration .)
+    FUNCTION        reduce using rule 5 (declaration -> function_declaration .)
+    WHEN            reduce using rule 5 (declaration -> function_declaration .)
+    LOOP            reduce using rule 5 (declaration -> function_declaration .)
+    OUT             reduce using rule 5 (declaration -> function_declaration .)
+    $end            reduce using rule 5 (declaration -> function_declaration .)
+    RBRACE          reduce using rule 5 (declaration -> function_declaration .)
+    RETURN          reduce using rule 5 (declaration -> function_declaration .)
+
+
+state 6
+
+    (6) declaration -> conditional .
+
+    INTEGER_TYPE    reduce using rule 6 (declaration -> conditional .)
+    FLOAT_TYPE      reduce using rule 6 (declaration -> conditional .)
+    STRING_TYPE     reduce using rule 6 (declaration -> conditional .)
+    FUNCTION        reduce using rule 6 (declaration -> conditional .)
+    WHEN            reduce using rule 6 (declaration -> conditional .)
+    LOOP            reduce using rule 6 (declaration -> conditional .)
+    OUT             reduce using rule 6 (declaration -> conditional .)
+    $end            reduce using rule 6 (declaration -> conditional .)
+    RBRACE          reduce using rule 6 (declaration -> conditional .)
+    RETURN          reduce using rule 6 (declaration -> conditional .)
+
+
+state 7
+
+    (7) declaration -> loop .
+
+    INTEGER_TYPE    reduce using rule 7 (declaration -> loop .)
+    FLOAT_TYPE      reduce using rule 7 (declaration -> loop .)
+    STRING_TYPE     reduce using rule 7 (declaration -> loop .)
+    FUNCTION        reduce using rule 7 (declaration -> loop .)
+    WHEN            reduce using rule 7 (declaration -> loop .)
+    LOOP            reduce using rule 7 (declaration -> loop .)
+    OUT             reduce using rule 7 (declaration -> loop .)
+    $end            reduce using rule 7 (declaration -> loop .)
+    RBRACE          reduce using rule 7 (declaration -> loop .)
+    RETURN          reduce using rule 7 (declaration -> loop .)
+
+
+state 8
+
+    (8) declaration -> output .
+
+    INTEGER_TYPE    reduce using rule 8 (declaration -> output .)
+    FLOAT_TYPE      reduce using rule 8 (declaration -> output .)
+    STRING_TYPE     reduce using rule 8 (declaration -> output .)
+    FUNCTION        reduce using rule 8 (declaration -> output .)
+    WHEN            reduce using rule 8 (declaration -> output .)
+    LOOP            reduce using rule 8 (declaration -> output .)
+    OUT             reduce using rule 8 (declaration -> output .)
+    $end            reduce using rule 8 (declaration -> output .)
+    RBRACE          reduce using rule 8 (declaration -> output .)
+    RETURN          reduce using rule 8 (declaration -> output .)
+
+
+state 9
+
+    (9) variable_declaration -> INTEGER_TYPE . ID ASSIGN expression SEMI
+
+    ID              shift and go to state 17
+
+
+state 10
+
+    (10) variable_declaration -> FLOAT_TYPE . ID ASSIGN expression SEMI
+
+    ID              shift and go to state 18
+
+
+state 11
+
+    (11) variable_declaration -> STRING_TYPE . ID ASSIGN TXT SEMI
+
+    ID              shift and go to state 19
+
+
+state 12
+
+    (12) function_declaration -> FUNCTION . ID LPAREN parameters RPAREN LBRACE declarations return_statement RBRACE
+    (13) function_declaration -> FUNCTION . ID LPAREN parameters RPAREN LBRACE declarations RBRACE
+
+    ID              shift and go to state 20
+
+
+state 13
+
+    (21) conditional -> WHEN . logical_expression LBRACE declarations RBRACE ELSE LBRACE declarations RBRACE
+    (22) conditional -> WHEN . logical_expression LBRACE declarations RBRACE
+    (45) logical_expression -> . comparison
+    (46) logical_expression -> . logical_expression OR comparison
+    (47) logical_expression -> . logical_expression AND comparison
+    (42) comparison -> . expression GT expression
+    (43) comparison -> . expression LT expression
+    (44) comparison -> . expression EQ expression
+    (26) expression -> . term
+    (27) expression -> . expression PLUS term
+    (28) expression -> . expression MINUS term
+    (29) expression -> . function_call
+    (34) term -> . factor
+    (35) term -> . term TIMES factor
+    (36) term -> . term DIVIDE factor
+    (37) term -> . term MOD factor
+    (30) function_call -> . ID LPAREN arguments RPAREN
+    (38) factor -> . NUM
+    (39) factor -> . DEC
+    (40) factor -> . ID
+    (41) factor -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 27
+    NUM             shift and go to state 29
+    DEC             shift and go to state 30
+    LPAREN          shift and go to state 28
+
+    logical_expression             shift and go to state 21
+    comparison                     shift and go to state 22
+    expression                     shift and go to state 23
+    term                           shift and go to state 24
+    function_call                  shift and go to state 25
+    factor                         shift and go to state 26
+
+state 14
+
+    (23) loop -> LOOP . ID LPAREN expression COMA expression RPAREN LBRACE declarations RBRACE
+
+    ID              shift and go to state 31
+
+
+state 15
+
+    (24) output -> OUT . expression SEMI
+    (25) output -> OUT . TXT SEMI
+    (26) expression -> . term
+    (27) expression -> . expression PLUS term
+    (28) expression -> . expression MINUS term
+    (29) expression -> . function_call
+    (34) term -> . factor
+    (35) term -> . term TIMES factor
+    (36) term -> . term DIVIDE factor
+    (37) term -> . term MOD factor
+    (30) function_call -> . ID LPAREN arguments RPAREN
+    (38) factor -> . NUM
+    (39) factor -> . DEC
+    (40) factor -> . ID
+    (41) factor -> . LPAREN expression RPAREN
+
+    TXT             shift and go to state 33
+    ID              shift and go to state 27
+    NUM             shift and go to state 29
+    DEC             shift and go to state 30
+    LPAREN          shift and go to state 28
+
+    expression                     shift and go to state 32
+    term                           shift and go to state 24
+    function_call                  shift and go to state 25
+    factor                         shift and go to state 26
+
+state 16
+
+    (3) declarations -> declarations declaration .
+
+    INTEGER_TYPE    reduce using rule 3 (declarations -> declarations declaration .)
+    FLOAT_TYPE      reduce using rule 3 (declarations -> declarations declaration .)
+    STRING_TYPE     reduce using rule 3 (declarations -> declarations declaration .)
+    FUNCTION        reduce using rule 3 (declarations -> declarations declaration .)
+    WHEN            reduce using rule 3 (declarations -> declarations declaration .)
+    LOOP            reduce using rule 3 (declarations -> declarations declaration .)
+    OUT             reduce using rule 3 (declarations -> declarations declaration .)
+    $end            reduce using rule 3 (declarations -> declarations declaration .)
+    RBRACE          reduce using rule 3 (declarations -> declarations declaration .)
+    RETURN          reduce using rule 3 (declarations -> declarations declaration .)
+
+
+state 17
+
+    (9) variable_declaration -> INTEGER_TYPE ID . ASSIGN expression SEMI
+
+    ASSIGN          shift and go to state 34
+
+
+state 18
+
+    (10) variable_declaration -> FLOAT_TYPE ID . ASSIGN expression SEMI
+
+    ASSIGN          shift and go to state 35
+
+
+state 19
+
+    (11) variable_declaration -> STRING_TYPE ID . ASSIGN TXT SEMI
+
+    ASSIGN          shift and go to state 36
+
+
+state 20
+
+    (12) function_declaration -> FUNCTION ID . LPAREN parameters RPAREN LBRACE declarations return_statement RBRACE
+    (13) function_declaration -> FUNCTION ID . LPAREN parameters RPAREN LBRACE declarations RBRACE
+
+    LPAREN          shift and go to state 37
+
+
+state 21
+
+    (21) conditional -> WHEN logical_expression . LBRACE declarations RBRACE ELSE LBRACE declarations RBRACE
+    (22) conditional -> WHEN logical_expression . LBRACE declarations RBRACE
+    (46) logical_expression -> logical_expression . OR comparison
+    (47) logical_expression -> logical_expression . AND comparison
+
+    LBRACE          shift and go to state 38
+    OR              shift and go to state 39
+    AND             shift and go to state 40
+
+
+state 22
+
+    (45) logical_expression -> comparison .
+
+    LBRACE          reduce using rule 45 (logical_expression -> comparison .)
+    OR              reduce using rule 45 (logical_expression -> comparison .)
+    AND             reduce using rule 45 (logical_expression -> comparison .)
+
+
+state 23
+
+    (42) comparison -> expression . GT expression
+    (43) comparison -> expression . LT expression
+    (44) comparison -> expression . EQ expression
+    (27) expression -> expression . PLUS term
+    (28) expression -> expression . MINUS term
+
+    GT              shift and go to state 41
+    LT              shift and go to state 42
+    EQ              shift and go to state 43
+    PLUS            shift and go to state 44
+    MINUS           shift and go to state 45
+
+
+state 24
+
+    (26) expression -> term .
+    (35) term -> term . TIMES factor
+    (36) term -> term . DIVIDE factor
+    (37) term -> term . MOD factor
+
+    GT              reduce using rule 26 (expression -> term .)
+    LT              reduce using rule 26 (expression -> term .)
+    EQ              reduce using rule 26 (expression -> term .)
+    PLUS            reduce using rule 26 (expression -> term .)
+    MINUS           reduce using rule 26 (expression -> term .)
+    SEMI            reduce using rule 26 (expression -> term .)
+    RPAREN          reduce using rule 26 (expression -> term .)
+    LBRACE          reduce using rule 26 (expression -> term .)
+    OR              reduce using rule 26 (expression -> term .)
+    AND             reduce using rule 26 (expression -> term .)
+    COMA            reduce using rule 26 (expression -> term .)
+    TIMES           shift and go to state 46
+    DIVIDE          shift and go to state 47
+    MOD             shift and go to state 48
+
+
+state 25
+
+    (29) expression -> function_call .
+
+    GT              reduce using rule 29 (expression -> function_call .)
+    LT              reduce using rule 29 (expression -> function_call .)
+    EQ              reduce using rule 29 (expression -> function_call .)
+    PLUS            reduce using rule 29 (expression -> function_call .)
+    MINUS           reduce using rule 29 (expression -> function_call .)
+    SEMI            reduce using rule 29 (expression -> function_call .)
+    RPAREN          reduce using rule 29 (expression -> function_call .)
+    LBRACE          reduce using rule 29 (expression -> function_call .)
+    OR              reduce using rule 29 (expression -> function_call .)
+    AND             reduce using rule 29 (expression -> function_call .)
+    COMA            reduce using rule 29 (expression -> function_call .)
+
+
+state 26
+
+    (34) term -> factor .
+
+    TIMES           reduce using rule 34 (term -> factor .)
+    DIVIDE          reduce using rule 34 (term -> factor .)
+    MOD             reduce using rule 34 (term -> factor .)
+    GT              reduce using rule 34 (term -> factor .)
+    LT              reduce using rule 34 (term -> factor .)
+    EQ              reduce using rule 34 (term -> factor .)
+    PLUS            reduce using rule 34 (term -> factor .)
+    MINUS           reduce using rule 34 (term -> factor .)
+    SEMI            reduce using rule 34 (term -> factor .)
+    RPAREN          reduce using rule 34 (term -> factor .)
+    LBRACE          reduce using rule 34 (term -> factor .)
+    OR              reduce using rule 34 (term -> factor .)
+    AND             reduce using rule 34 (term -> factor .)
+    COMA            reduce using rule 34 (term -> factor .)
+
+
+state 27
+
+    (30) function_call -> ID . LPAREN arguments RPAREN
+    (40) factor -> ID .
+
+    LPAREN          shift and go to state 49
+    TIMES           reduce using rule 40 (factor -> ID .)
+    DIVIDE          reduce using rule 40 (factor -> ID .)
+    MOD             reduce using rule 40 (factor -> ID .)
+    GT              reduce using rule 40 (factor -> ID .)
+    LT              reduce using rule 40 (factor -> ID .)
+    EQ              reduce using rule 40 (factor -> ID .)
+    PLUS            reduce using rule 40 (factor -> ID .)
+    MINUS           reduce using rule 40 (factor -> ID .)
+    SEMI            reduce using rule 40 (factor -> ID .)
+    RPAREN          reduce using rule 40 (factor -> ID .)
+    LBRACE          reduce using rule 40 (factor -> ID .)
+    OR              reduce using rule 40 (factor -> ID .)
+    AND             reduce using rule 40 (factor -> ID .)
+    COMA            reduce using rule 40 (factor -> ID .)
+
+
+state 28
+
+    (41) factor -> LPAREN . expression RPAREN
+    (26) expression -> . term
+    (27) expression -> . expression PLUS term
+    (28) expression -> . expression MINUS term
+    (29) expression -> . function_call
+    (34) term -> . factor
+    (35) term -> . term TIMES factor
+    (36) term -> . term DIVIDE factor
+    (37) term -> . term MOD factor
+    (30) function_call -> . ID LPAREN arguments RPAREN
+    (38) factor -> . NUM
+    (39) factor -> . DEC
+    (40) factor -> . ID
+    (41) factor -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 27
+    NUM             shift and go to state 29
+    DEC             shift and go to state 30
+    LPAREN          shift and go to state 28
+
+    expression                     shift and go to state 50
+    term                           shift and go to state 24
+    function_call                  shift and go to state 25
+    factor                         shift and go to state 26
+
+state 29
+
+    (38) factor -> NUM .
+
+    TIMES           reduce using rule 38 (factor -> NUM .)
+    DIVIDE          reduce using rule 38 (factor -> NUM .)
+    MOD             reduce using rule 38 (factor -> NUM .)
+    GT              reduce using rule 38 (factor -> NUM .)
+    LT              reduce using rule 38 (factor -> NUM .)
+    EQ              reduce using rule 38 (factor -> NUM .)
+    PLUS            reduce using rule 38 (factor -> NUM .)
+    MINUS           reduce using rule 38 (factor -> NUM .)
+    SEMI            reduce using rule 38 (factor -> NUM .)
+    RPAREN          reduce using rule 38 (factor -> NUM .)
+    LBRACE          reduce using rule 38 (factor -> NUM .)
+    OR              reduce using rule 38 (factor -> NUM .)
+    AND             reduce using rule 38 (factor -> NUM .)
+    COMA            reduce using rule 38 (factor -> NUM .)
+
+
+state 30
+
+    (39) factor -> DEC .
+
+    TIMES           reduce using rule 39 (factor -> DEC .)
+    DIVIDE          reduce using rule 39 (factor -> DEC .)
+    MOD             reduce using rule 39 (factor -> DEC .)
+    GT              reduce using rule 39 (factor -> DEC .)
+    LT              reduce using rule 39 (factor -> DEC .)
+    EQ              reduce using rule 39 (factor -> DEC .)
+    PLUS            reduce using rule 39 (factor -> DEC .)
+    MINUS           reduce using rule 39 (factor -> DEC .)
+    SEMI            reduce using rule 39 (factor -> DEC .)
+    RPAREN          reduce using rule 39 (factor -> DEC .)
+    LBRACE          reduce using rule 39 (factor -> DEC .)
+    OR              reduce using rule 39 (factor -> DEC .)
+    AND             reduce using rule 39 (factor -> DEC .)
+    COMA            reduce using rule 39 (factor -> DEC .)
+
+
+state 31
+
+    (23) loop -> LOOP ID . LPAREN expression COMA expression RPAREN LBRACE declarations RBRACE
+
+    LPAREN          shift and go to state 51
+
+
+state 32
+
+    (24) output -> OUT expression . SEMI
+    (27) expression -> expression . PLUS term
+    (28) expression -> expression . MINUS term
+
+    SEMI            shift and go to state 52
+    PLUS            shift and go to state 44
+    MINUS           shift and go to state 45
+
+
+state 33
+
+    (25) output -> OUT TXT . SEMI
+
+    SEMI            shift and go to state 53
+
+
+state 34
+
+    (9) variable_declaration -> INTEGER_TYPE ID ASSIGN . expression SEMI
+    (26) expression -> . term
+    (27) expression -> . expression PLUS term
+    (28) expression -> . expression MINUS term
+    (29) expression -> . function_call
+    (34) term -> . factor
+    (35) term -> . term TIMES factor
+    (36) term -> . term DIVIDE factor
+    (37) term -> . term MOD factor
+    (30) function_call -> . ID LPAREN arguments RPAREN
+    (38) factor -> . NUM
+    (39) factor -> . DEC
+    (40) factor -> . ID
+    (41) factor -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 27
+    NUM             shift and go to state 29
+    DEC             shift and go to state 30
+    LPAREN          shift and go to state 28
+
+    expression                     shift and go to state 54
+    term                           shift and go to state 24
+    function_call                  shift and go to state 25
+    factor                         shift and go to state 26
+
+state 35
+
+    (10) variable_declaration -> FLOAT_TYPE ID ASSIGN . expression SEMI
+    (26) expression -> . term
+    (27) expression -> . expression PLUS term
+    (28) expression -> . expression MINUS term
+    (29) expression -> . function_call
+    (34) term -> . factor
+    (35) term -> . term TIMES factor
+    (36) term -> . term DIVIDE factor
+    (37) term -> . term MOD factor
+    (30) function_call -> . ID LPAREN arguments RPAREN
+    (38) factor -> . NUM
+    (39) factor -> . DEC
+    (40) factor -> . ID
+    (41) factor -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 27
+    NUM             shift and go to state 29
+    DEC             shift and go to state 30
+    LPAREN          shift and go to state 28
+
+    expression                     shift and go to state 55
+    term                           shift and go to state 24
+    function_call                  shift and go to state 25
+    factor                         shift and go to state 26
+
+state 36
+
+    (11) variable_declaration -> STRING_TYPE ID ASSIGN . TXT SEMI
+
+    TXT             shift and go to state 56
+
+
+state 37
+
+    (12) function_declaration -> FUNCTION ID LPAREN . parameters RPAREN LBRACE declarations return_statement RBRACE
+    (13) function_declaration -> FUNCTION ID LPAREN . parameters RPAREN LBRACE declarations RBRACE
+    (14) parameters -> . parameter
+    (15) parameters -> . parameters COMA parameter
+    (16) parameters -> . empty
+    (17) parameter -> . INTEGER_TYPE ID
+    (18) parameter -> . FLOAT_TYPE ID
+    (19) parameter -> . STRING_TYPE ID
+    (48) empty -> .
+
+    INTEGER_TYPE    shift and go to state 60
+    FLOAT_TYPE      shift and go to state 61
+    STRING_TYPE     shift and go to state 62
+    RPAREN          reduce using rule 48 (empty -> .)
+    COMA            reduce using rule 48 (empty -> .)
+
+    parameters                     shift and go to state 57
+    parameter                      shift and go to state 58
+    empty                          shift and go to state 59
+
+state 38
+
+    (21) conditional -> WHEN logical_expression LBRACE . declarations RBRACE ELSE LBRACE declarations RBRACE
+    (22) conditional -> WHEN logical_expression LBRACE . declarations RBRACE
+    (2) declarations -> . declaration
+    (3) declarations -> . declarations declaration
+    (4) declaration -> . variable_declaration
+    (5) declaration -> . function_declaration
+    (6) declaration -> . conditional
+    (7) declaration -> . loop
+    (8) declaration -> . output
+    (9) variable_declaration -> . INTEGER_TYPE ID ASSIGN expression SEMI
+    (10) variable_declaration -> . FLOAT_TYPE ID ASSIGN expression SEMI
+    (11) variable_declaration -> . STRING_TYPE ID ASSIGN TXT SEMI
+    (12) function_declaration -> . FUNCTION ID LPAREN parameters RPAREN LBRACE declarations return_statement RBRACE
+    (13) function_declaration -> . FUNCTION ID LPAREN parameters RPAREN LBRACE declarations RBRACE
+    (21) conditional -> . WHEN logical_expression LBRACE declarations RBRACE ELSE LBRACE declarations RBRACE
+    (22) conditional -> . WHEN logical_expression LBRACE declarations RBRACE
+    (23) loop -> . LOOP ID LPAREN expression COMA expression RPAREN LBRACE declarations RBRACE
+    (24) output -> . OUT expression SEMI
+    (25) output -> . OUT TXT SEMI
+
+    INTEGER_TYPE    shift and go to state 9
+    FLOAT_TYPE      shift and go to state 10
+    STRING_TYPE     shift and go to state 11
+    FUNCTION        shift and go to state 12
+    WHEN            shift and go to state 13
+    LOOP            shift and go to state 14
+    OUT             shift and go to state 15
+
+    declarations                   shift and go to state 63
+    declaration                    shift and go to state 3
+    variable_declaration           shift and go to state 4
+    function_declaration           shift and go to state 5
+    conditional                    shift and go to state 6
+    loop                           shift and go to state 7
+    output                         shift and go to state 8
+
+state 39
+
+    (46) logical_expression -> logical_expression OR . comparison
+    (42) comparison -> . expression GT expression
+    (43) comparison -> . expression LT expression
+    (44) comparison -> . expression EQ expression
+    (26) expression -> . term
+    (27) expression -> . expression PLUS term
+    (28) expression -> . expression MINUS term
+    (29) expression -> . function_call
+    (34) term -> . factor
+    (35) term -> . term TIMES factor
+    (36) term -> . term DIVIDE factor
+    (37) term -> . term MOD factor
+    (30) function_call -> . ID LPAREN arguments RPAREN
+    (38) factor -> . NUM
+    (39) factor -> . DEC
+    (40) factor -> . ID
+    (41) factor -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 27
+    NUM             shift and go to state 29
+    DEC             shift and go to state 30
+    LPAREN          shift and go to state 28
+
+    comparison                     shift and go to state 64
+    expression                     shift and go to state 23
+    term                           shift and go to state 24
+    function_call                  shift and go to state 25
+    factor                         shift and go to state 26
+
+state 40
+
+    (47) logical_expression -> logical_expression AND . comparison
+    (42) comparison -> . expression GT expression
+    (43) comparison -> . expression LT expression
+    (44) comparison -> . expression EQ expression
+    (26) expression -> . term
+    (27) expression -> . expression PLUS term
+    (28) expression -> . expression MINUS term
+    (29) expression -> . function_call
+    (34) term -> . factor
+    (35) term -> . term TIMES factor
+    (36) term -> . term DIVIDE factor
+    (37) term -> . term MOD factor
+    (30) function_call -> . ID LPAREN arguments RPAREN
+    (38) factor -> . NUM
+    (39) factor -> . DEC
+    (40) factor -> . ID
+    (41) factor -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 27
+    NUM             shift and go to state 29
+    DEC             shift and go to state 30
+    LPAREN          shift and go to state 28
+
+    comparison                     shift and go to state 65
+    expression                     shift and go to state 23
+    term                           shift and go to state 24
+    function_call                  shift and go to state 25
+    factor                         shift and go to state 26
+
+state 41
+
+    (42) comparison -> expression GT . expression
+    (26) expression -> . term
+    (27) expression -> . expression PLUS term
+    (28) expression -> . expression MINUS term
+    (29) expression -> . function_call
+    (34) term -> . factor
+    (35) term -> . term TIMES factor
+    (36) term -> . term DIVIDE factor
+    (37) term -> . term MOD factor
+    (30) function_call -> . ID LPAREN arguments RPAREN
+    (38) factor -> . NUM
+    (39) factor -> . DEC
+    (40) factor -> . ID
+    (41) factor -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 27
+    NUM             shift and go to state 29
+    DEC             shift and go to state 30
+    LPAREN          shift and go to state 28
+
+    expression                     shift and go to state 66
+    term                           shift and go to state 24
+    function_call                  shift and go to state 25
+    factor                         shift and go to state 26
+
+state 42
+
+    (43) comparison -> expression LT . expression
+    (26) expression -> . term
+    (27) expression -> . expression PLUS term
+    (28) expression -> . expression MINUS term
+    (29) expression -> . function_call
+    (34) term -> . factor
+    (35) term -> . term TIMES factor
+    (36) term -> . term DIVIDE factor
+    (37) term -> . term MOD factor
+    (30) function_call -> . ID LPAREN arguments RPAREN
+    (38) factor -> . NUM
+    (39) factor -> . DEC
+    (40) factor -> . ID
+    (41) factor -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 27
+    NUM             shift and go to state 29
+    DEC             shift and go to state 30
+    LPAREN          shift and go to state 28
+
+    expression                     shift and go to state 67
+    term                           shift and go to state 24
+    function_call                  shift and go to state 25
+    factor                         shift and go to state 26
+
+state 43
+
+    (44) comparison -> expression EQ . expression
+    (26) expression -> . term
+    (27) expression -> . expression PLUS term
+    (28) expression -> . expression MINUS term
+    (29) expression -> . function_call
+    (34) term -> . factor
+    (35) term -> . term TIMES factor
+    (36) term -> . term DIVIDE factor
+    (37) term -> . term MOD factor
+    (30) function_call -> . ID LPAREN arguments RPAREN
+    (38) factor -> . NUM
+    (39) factor -> . DEC
+    (40) factor -> . ID
+    (41) factor -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 27
+    NUM             shift and go to state 29
+    DEC             shift and go to state 30
+    LPAREN          shift and go to state 28
+
+    expression                     shift and go to state 68
+    term                           shift and go to state 24
+    function_call                  shift and go to state 25
+    factor                         shift and go to state 26
+
+state 44
+
+    (27) expression -> expression PLUS . term
+    (34) term -> . factor
+    (35) term -> . term TIMES factor
+    (36) term -> . term DIVIDE factor
+    (37) term -> . term MOD factor
+    (38) factor -> . NUM
+    (39) factor -> . DEC
+    (40) factor -> . ID
+    (41) factor -> . LPAREN expression RPAREN
+
+    NUM             shift and go to state 29
+    DEC             shift and go to state 30
+    ID              shift and go to state 70
+    LPAREN          shift and go to state 28
+
+    term                           shift and go to state 69
+    factor                         shift and go to state 26
+
+state 45
+
+    (28) expression -> expression MINUS . term
+    (34) term -> . factor
+    (35) term -> . term TIMES factor
+    (36) term -> . term DIVIDE factor
+    (37) term -> . term MOD factor
+    (38) factor -> . NUM
+    (39) factor -> . DEC
+    (40) factor -> . ID
+    (41) factor -> . LPAREN expression RPAREN
+
+    NUM             shift and go to state 29
+    DEC             shift and go to state 30
+    ID              shift and go to state 70
+    LPAREN          shift and go to state 28
+
+    term                           shift and go to state 71
+    factor                         shift and go to state 26
+
+state 46
+
+    (35) term -> term TIMES . factor
+    (38) factor -> . NUM
+    (39) factor -> . DEC
+    (40) factor -> . ID
+    (41) factor -> . LPAREN expression RPAREN
+
+    NUM             shift and go to state 29
+    DEC             shift and go to state 30
+    ID              shift and go to state 70
+    LPAREN          shift and go to state 28
+
+    factor                         shift and go to state 72
+
+state 47
+
+    (36) term -> term DIVIDE . factor
+    (38) factor -> . NUM
+    (39) factor -> . DEC
+    (40) factor -> . ID
+    (41) factor -> . LPAREN expression RPAREN
+
+    NUM             shift and go to state 29
+    DEC             shift and go to state 30
+    ID              shift and go to state 70
+    LPAREN          shift and go to state 28
+
+    factor                         shift and go to state 73
+
+state 48
+
+    (37) term -> term MOD . factor
+    (38) factor -> . NUM
+    (39) factor -> . DEC
+    (40) factor -> . ID
+    (41) factor -> . LPAREN expression RPAREN
+
+    NUM             shift and go to state 29
+    DEC             shift and go to state 30
+    ID              shift and go to state 70
+    LPAREN          shift and go to state 28
+
+    factor                         shift and go to state 74
+
+state 49
+
+    (30) function_call -> ID LPAREN . arguments RPAREN
+    (31) arguments -> . expression
+    (32) arguments -> . arguments COMA expression
+    (33) arguments -> . empty
+    (26) expression -> . term
+    (27) expression -> . expression PLUS term
+    (28) expression -> . expression MINUS term
+    (29) expression -> . function_call
+    (48) empty -> .
+    (34) term -> . factor
+    (35) term -> . term TIMES factor
+    (36) term -> . term DIVIDE factor
+    (37) term -> . term MOD factor
+    (30) function_call -> . ID LPAREN arguments RPAREN
+    (38) factor -> . NUM
+    (39) factor -> . DEC
+    (40) factor -> . ID
+    (41) factor -> . LPAREN expression RPAREN
+
+    RPAREN          reduce using rule 48 (empty -> .)
+    COMA            reduce using rule 48 (empty -> .)
+    ID              shift and go to state 27
+    NUM             shift and go to state 29
+    DEC             shift and go to state 30
+    LPAREN          shift and go to state 28
+
+    arguments                      shift and go to state 75
+    expression                     shift and go to state 76
+    empty                          shift and go to state 77
+    term                           shift and go to state 24
+    function_call                  shift and go to state 25
+    factor                         shift and go to state 26
+
+state 50
+
+    (41) factor -> LPAREN expression . RPAREN
+    (27) expression -> expression . PLUS term
+    (28) expression -> expression . MINUS term
+
+    RPAREN          shift and go to state 78
+    PLUS            shift and go to state 44
+    MINUS           shift and go to state 45
+
+
+state 51
+
+    (23) loop -> LOOP ID LPAREN . expression COMA expression RPAREN LBRACE declarations RBRACE
+    (26) expression -> . term
+    (27) expression -> . expression PLUS term
+    (28) expression -> . expression MINUS term
+    (29) expression -> . function_call
+    (34) term -> . factor
+    (35) term -> . term TIMES factor
+    (36) term -> . term DIVIDE factor
+    (37) term -> . term MOD factor
+    (30) function_call -> . ID LPAREN arguments RPAREN
+    (38) factor -> . NUM
+    (39) factor -> . DEC
+    (40) factor -> . ID
+    (41) factor -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 27
+    NUM             shift and go to state 29
+    DEC             shift and go to state 30
+    LPAREN          shift and go to state 28
+
+    expression                     shift and go to state 79
+    term                           shift and go to state 24
+    function_call                  shift and go to state 25
+    factor                         shift and go to state 26
+
+state 52
+
+    (24) output -> OUT expression SEMI .
+
+    INTEGER_TYPE    reduce using rule 24 (output -> OUT expression SEMI .)
+    FLOAT_TYPE      reduce using rule 24 (output -> OUT expression SEMI .)
+    STRING_TYPE     reduce using rule 24 (output -> OUT expression SEMI .)
+    FUNCTION        reduce using rule 24 (output -> OUT expression SEMI .)
+    WHEN            reduce using rule 24 (output -> OUT expression SEMI .)
+    LOOP            reduce using rule 24 (output -> OUT expression SEMI .)
+    OUT             reduce using rule 24 (output -> OUT expression SEMI .)
+    $end            reduce using rule 24 (output -> OUT expression SEMI .)
+    RBRACE          reduce using rule 24 (output -> OUT expression SEMI .)
+    RETURN          reduce using rule 24 (output -> OUT expression SEMI .)
+
+
+state 53
+
+    (25) output -> OUT TXT SEMI .
+
+    INTEGER_TYPE    reduce using rule 25 (output -> OUT TXT SEMI .)
+    FLOAT_TYPE      reduce using rule 25 (output -> OUT TXT SEMI .)
+    STRING_TYPE     reduce using rule 25 (output -> OUT TXT SEMI .)
+    FUNCTION        reduce using rule 25 (output -> OUT TXT SEMI .)
+    WHEN            reduce using rule 25 (output -> OUT TXT SEMI .)
+    LOOP            reduce using rule 25 (output -> OUT TXT SEMI .)
+    OUT             reduce using rule 25 (output -> OUT TXT SEMI .)
+    $end            reduce using rule 25 (output -> OUT TXT SEMI .)
+    RBRACE          reduce using rule 25 (output -> OUT TXT SEMI .)
+    RETURN          reduce using rule 25 (output -> OUT TXT SEMI .)
+
+
+state 54
+
+    (9) variable_declaration -> INTEGER_TYPE ID ASSIGN expression . SEMI
+    (27) expression -> expression . PLUS term
+    (28) expression -> expression . MINUS term
+
+    SEMI            shift and go to state 80
+    PLUS            shift and go to state 44
+    MINUS           shift and go to state 45
+
+
+state 55
+
+    (10) variable_declaration -> FLOAT_TYPE ID ASSIGN expression . SEMI
+    (27) expression -> expression . PLUS term
+    (28) expression -> expression . MINUS term
+
+    SEMI            shift and go to state 81
+    PLUS            shift and go to state 44
+    MINUS           shift and go to state 45
+
+
+state 56
+
+    (11) variable_declaration -> STRING_TYPE ID ASSIGN TXT . SEMI
+
+    SEMI            shift and go to state 82
+
+
+state 57
+
+    (12) function_declaration -> FUNCTION ID LPAREN parameters . RPAREN LBRACE declarations return_statement RBRACE
+    (13) function_declaration -> FUNCTION ID LPAREN parameters . RPAREN LBRACE declarations RBRACE
+    (15) parameters -> parameters . COMA parameter
+
+    RPAREN          shift and go to state 83
+    COMA            shift and go to state 84
+
+
+state 58
+
+    (14) parameters -> parameter .
+
+    RPAREN          reduce using rule 14 (parameters -> parameter .)
+    COMA            reduce using rule 14 (parameters -> parameter .)
+
+
+state 59
+
+    (16) parameters -> empty .
+
+    RPAREN          reduce using rule 16 (parameters -> empty .)
+    COMA            reduce using rule 16 (parameters -> empty .)
+
+
+state 60
+
+    (17) parameter -> INTEGER_TYPE . ID
+
+    ID              shift and go to state 85
+
+
+state 61
+
+    (18) parameter -> FLOAT_TYPE . ID
+
+    ID              shift and go to state 86
+
+
+state 62
+
+    (19) parameter -> STRING_TYPE . ID
+
+    ID              shift and go to state 87
+
+
+state 63
+
+    (21) conditional -> WHEN logical_expression LBRACE declarations . RBRACE ELSE LBRACE declarations RBRACE
+    (22) conditional -> WHEN logical_expression LBRACE declarations . RBRACE
+    (3) declarations -> declarations . declaration
+    (4) declaration -> . variable_declaration
+    (5) declaration -> . function_declaration
+    (6) declaration -> . conditional
+    (7) declaration -> . loop
+    (8) declaration -> . output
+    (9) variable_declaration -> . INTEGER_TYPE ID ASSIGN expression SEMI
+    (10) variable_declaration -> . FLOAT_TYPE ID ASSIGN expression SEMI
+    (11) variable_declaration -> . STRING_TYPE ID ASSIGN TXT SEMI
+    (12) function_declaration -> . FUNCTION ID LPAREN parameters RPAREN LBRACE declarations return_statement RBRACE
+    (13) function_declaration -> . FUNCTION ID LPAREN parameters RPAREN LBRACE declarations RBRACE
+    (21) conditional -> . WHEN logical_expression LBRACE declarations RBRACE ELSE LBRACE declarations RBRACE
+    (22) conditional -> . WHEN logical_expression LBRACE declarations RBRACE
+    (23) loop -> . LOOP ID LPAREN expression COMA expression RPAREN LBRACE declarations RBRACE
+    (24) output -> . OUT expression SEMI
+    (25) output -> . OUT TXT SEMI
+
+    RBRACE          shift and go to state 88
+    INTEGER_TYPE    shift and go to state 9
+    FLOAT_TYPE      shift and go to state 10
+    STRING_TYPE     shift and go to state 11
+    FUNCTION        shift and go to state 12
+    WHEN            shift and go to state 13
+    LOOP            shift and go to state 14
+    OUT             shift and go to state 15
+
+    declaration                    shift and go to state 16
+    variable_declaration           shift and go to state 4
+    function_declaration           shift and go to state 5
+    conditional                    shift and go to state 6
+    loop                           shift and go to state 7
+    output                         shift and go to state 8
+
+state 64
+
+    (46) logical_expression -> logical_expression OR comparison .
+
+    LBRACE          reduce using rule 46 (logical_expression -> logical_expression OR comparison .)
+    OR              reduce using rule 46 (logical_expression -> logical_expression OR comparison .)
+    AND             reduce using rule 46 (logical_expression -> logical_expression OR comparison .)
+
+
+state 65
+
+    (47) logical_expression -> logical_expression AND comparison .
+
+    LBRACE          reduce using rule 47 (logical_expression -> logical_expression AND comparison .)
+    OR              reduce using rule 47 (logical_expression -> logical_expression AND comparison .)
+    AND             reduce using rule 47 (logical_expression -> logical_expression AND comparison .)
+
+
+state 66
+
+    (42) comparison -> expression GT expression .
+    (27) expression -> expression . PLUS term
+    (28) expression -> expression . MINUS term
+
+    LBRACE          reduce using rule 42 (comparison -> expression GT expression .)
+    OR              reduce using rule 42 (comparison -> expression GT expression .)
+    AND             reduce using rule 42 (comparison -> expression GT expression .)
+    PLUS            shift and go to state 44
+    MINUS           shift and go to state 45
+
+
+state 67
+
+    (43) comparison -> expression LT expression .
+    (27) expression -> expression . PLUS term
+    (28) expression -> expression . MINUS term
+
+    LBRACE          reduce using rule 43 (comparison -> expression LT expression .)
+    OR              reduce using rule 43 (comparison -> expression LT expression .)
+    AND             reduce using rule 43 (comparison -> expression LT expression .)
+    PLUS            shift and go to state 44
+    MINUS           shift and go to state 45
+
+
+state 68
+
+    (44) comparison -> expression EQ expression .
+    (27) expression -> expression . PLUS term
+    (28) expression -> expression . MINUS term
+
+    LBRACE          reduce using rule 44 (comparison -> expression EQ expression .)
+    OR              reduce using rule 44 (comparison -> expression EQ expression .)
+    AND             reduce using rule 44 (comparison -> expression EQ expression .)
+    PLUS            shift and go to state 44
+    MINUS           shift and go to state 45
+
+
+state 69
+
+    (27) expression -> expression PLUS term .
+    (35) term -> term . TIMES factor
+    (36) term -> term . DIVIDE factor
+    (37) term -> term . MOD factor
+
+    GT              reduce using rule 27 (expression -> expression PLUS term .)
+    LT              reduce using rule 27 (expression -> expression PLUS term .)
+    EQ              reduce using rule 27 (expression -> expression PLUS term .)
+    PLUS            reduce using rule 27 (expression -> expression PLUS term .)
+    MINUS           reduce using rule 27 (expression -> expression PLUS term .)
+    SEMI            reduce using rule 27 (expression -> expression PLUS term .)
+    RPAREN          reduce using rule 27 (expression -> expression PLUS term .)
+    LBRACE          reduce using rule 27 (expression -> expression PLUS term .)
+    OR              reduce using rule 27 (expression -> expression PLUS term .)
+    AND             reduce using rule 27 (expression -> expression PLUS term .)
+    COMA            reduce using rule 27 (expression -> expression PLUS term .)
+    TIMES           shift and go to state 46
+    DIVIDE          shift and go to state 47
+    MOD             shift and go to state 48
+
+
+state 70
+
+    (40) factor -> ID .
+
+    TIMES           reduce using rule 40 (factor -> ID .)
+    DIVIDE          reduce using rule 40 (factor -> ID .)
+    MOD             reduce using rule 40 (factor -> ID .)
+    GT              reduce using rule 40 (factor -> ID .)
+    LT              reduce using rule 40 (factor -> ID .)
+    EQ              reduce using rule 40 (factor -> ID .)
+    PLUS            reduce using rule 40 (factor -> ID .)
+    MINUS           reduce using rule 40 (factor -> ID .)
+    SEMI            reduce using rule 40 (factor -> ID .)
+    RPAREN          reduce using rule 40 (factor -> ID .)
+    LBRACE          reduce using rule 40 (factor -> ID .)
+    OR              reduce using rule 40 (factor -> ID .)
+    AND             reduce using rule 40 (factor -> ID .)
+    COMA            reduce using rule 40 (factor -> ID .)
+
+
+state 71
+
+    (28) expression -> expression MINUS term .
+    (35) term -> term . TIMES factor
+    (36) term -> term . DIVIDE factor
+    (37) term -> term . MOD factor
+
+    GT              reduce using rule 28 (expression -> expression MINUS term .)
+    LT              reduce using rule 28 (expression -> expression MINUS term .)
+    EQ              reduce using rule 28 (expression -> expression MINUS term .)
+    PLUS            reduce using rule 28 (expression -> expression MINUS term .)
+    MINUS           reduce using rule 28 (expression -> expression MINUS term .)
+    SEMI            reduce using rule 28 (expression -> expression MINUS term .)
+    RPAREN          reduce using rule 28 (expression -> expression MINUS term .)
+    LBRACE          reduce using rule 28 (expression -> expression MINUS term .)
+    OR              reduce using rule 28 (expression -> expression MINUS term .)
+    AND             reduce using rule 28 (expression -> expression MINUS term .)
+    COMA            reduce using rule 28 (expression -> expression MINUS term .)
+    TIMES           shift and go to state 46
+    DIVIDE          shift and go to state 47
+    MOD             shift and go to state 48
+
+
+state 72
+
+    (35) term -> term TIMES factor .
+
+    TIMES           reduce using rule 35 (term -> term TIMES factor .)
+    DIVIDE          reduce using rule 35 (term -> term TIMES factor .)
+    MOD             reduce using rule 35 (term -> term TIMES factor .)
+    GT              reduce using rule 35 (term -> term TIMES factor .)
+    LT              reduce using rule 35 (term -> term TIMES factor .)
+    EQ              reduce using rule 35 (term -> term TIMES factor .)
+    PLUS            reduce using rule 35 (term -> term TIMES factor .)
+    MINUS           reduce using rule 35 (term -> term TIMES factor .)
+    SEMI            reduce using rule 35 (term -> term TIMES factor .)
+    RPAREN          reduce using rule 35 (term -> term TIMES factor .)
+    LBRACE          reduce using rule 35 (term -> term TIMES factor .)
+    OR              reduce using rule 35 (term -> term TIMES factor .)
+    AND             reduce using rule 35 (term -> term TIMES factor .)
+    COMA            reduce using rule 35 (term -> term TIMES factor .)
+
+
+state 73
+
+    (36) term -> term DIVIDE factor .
+
+    TIMES           reduce using rule 36 (term -> term DIVIDE factor .)
+    DIVIDE          reduce using rule 36 (term -> term DIVIDE factor .)
+    MOD             reduce using rule 36 (term -> term DIVIDE factor .)
+    GT              reduce using rule 36 (term -> term DIVIDE factor .)
+    LT              reduce using rule 36 (term -> term DIVIDE factor .)
+    EQ              reduce using rule 36 (term -> term DIVIDE factor .)
+    PLUS            reduce using rule 36 (term -> term DIVIDE factor .)
+    MINUS           reduce using rule 36 (term -> term DIVIDE factor .)
+    SEMI            reduce using rule 36 (term -> term DIVIDE factor .)
+    RPAREN          reduce using rule 36 (term -> term DIVIDE factor .)
+    LBRACE          reduce using rule 36 (term -> term DIVIDE factor .)
+    OR              reduce using rule 36 (term -> term DIVIDE factor .)
+    AND             reduce using rule 36 (term -> term DIVIDE factor .)
+    COMA            reduce using rule 36 (term -> term DIVIDE factor .)
+
+
+state 74
+
+    (37) term -> term MOD factor .
+
+    TIMES           reduce using rule 37 (term -> term MOD factor .)
+    DIVIDE          reduce using rule 37 (term -> term MOD factor .)
+    MOD             reduce using rule 37 (term -> term MOD factor .)
+    GT              reduce using rule 37 (term -> term MOD factor .)
+    LT              reduce using rule 37 (term -> term MOD factor .)
+    EQ              reduce using rule 37 (term -> term MOD factor .)
+    PLUS            reduce using rule 37 (term -> term MOD factor .)
+    MINUS           reduce using rule 37 (term -> term MOD factor .)
+    SEMI            reduce using rule 37 (term -> term MOD factor .)
+    RPAREN          reduce using rule 37 (term -> term MOD factor .)
+    LBRACE          reduce using rule 37 (term -> term MOD factor .)
+    OR              reduce using rule 37 (term -> term MOD factor .)
+    AND             reduce using rule 37 (term -> term MOD factor .)
+    COMA            reduce using rule 37 (term -> term MOD factor .)
+
+
+state 75
+
+    (30) function_call -> ID LPAREN arguments . RPAREN
+    (32) arguments -> arguments . COMA expression
+
+    RPAREN          shift and go to state 89
+    COMA            shift and go to state 90
+
+
+state 76
+
+    (31) arguments -> expression .
+    (27) expression -> expression . PLUS term
+    (28) expression -> expression . MINUS term
+
+    RPAREN          reduce using rule 31 (arguments -> expression .)
+    COMA            reduce using rule 31 (arguments -> expression .)
+    PLUS            shift and go to state 44
+    MINUS           shift and go to state 45
+
+
+state 77
+
+    (33) arguments -> empty .
+
+    RPAREN          reduce using rule 33 (arguments -> empty .)
+    COMA            reduce using rule 33 (arguments -> empty .)
+
+
+state 78
+
+    (41) factor -> LPAREN expression RPAREN .
+
+    TIMES           reduce using rule 41 (factor -> LPAREN expression RPAREN .)
+    DIVIDE          reduce using rule 41 (factor -> LPAREN expression RPAREN .)
+    MOD             reduce using rule 41 (factor -> LPAREN expression RPAREN .)
+    GT              reduce using rule 41 (factor -> LPAREN expression RPAREN .)
+    LT              reduce using rule 41 (factor -> LPAREN expression RPAREN .)
+    EQ              reduce using rule 41 (factor -> LPAREN expression RPAREN .)
+    PLUS            reduce using rule 41 (factor -> LPAREN expression RPAREN .)
+    MINUS           reduce using rule 41 (factor -> LPAREN expression RPAREN .)
+    SEMI            reduce using rule 41 (factor -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 41 (factor -> LPAREN expression RPAREN .)
+    LBRACE          reduce using rule 41 (factor -> LPAREN expression RPAREN .)
+    OR              reduce using rule 41 (factor -> LPAREN expression RPAREN .)
+    AND             reduce using rule 41 (factor -> LPAREN expression RPAREN .)
+    COMA            reduce using rule 41 (factor -> LPAREN expression RPAREN .)
+
+
+state 79
+
+    (23) loop -> LOOP ID LPAREN expression . COMA expression RPAREN LBRACE declarations RBRACE
+    (27) expression -> expression . PLUS term
+    (28) expression -> expression . MINUS term
+
+    COMA            shift and go to state 91
+    PLUS            shift and go to state 44
+    MINUS           shift and go to state 45
+
+
+state 80
+
+    (9) variable_declaration -> INTEGER_TYPE ID ASSIGN expression SEMI .
+
+    INTEGER_TYPE    reduce using rule 9 (variable_declaration -> INTEGER_TYPE ID ASSIGN expression SEMI .)
+    FLOAT_TYPE      reduce using rule 9 (variable_declaration -> INTEGER_TYPE ID ASSIGN expression SEMI .)
+    STRING_TYPE     reduce using rule 9 (variable_declaration -> INTEGER_TYPE ID ASSIGN expression SEMI .)
+    FUNCTION        reduce using rule 9 (variable_declaration -> INTEGER_TYPE ID ASSIGN expression SEMI .)
+    WHEN            reduce using rule 9 (variable_declaration -> INTEGER_TYPE ID ASSIGN expression SEMI .)
+    LOOP            reduce using rule 9 (variable_declaration -> INTEGER_TYPE ID ASSIGN expression SEMI .)
+    OUT             reduce using rule 9 (variable_declaration -> INTEGER_TYPE ID ASSIGN expression SEMI .)
+    $end            reduce using rule 9 (variable_declaration -> INTEGER_TYPE ID ASSIGN expression SEMI .)
+    RBRACE          reduce using rule 9 (variable_declaration -> INTEGER_TYPE ID ASSIGN expression SEMI .)
+    RETURN          reduce using rule 9 (variable_declaration -> INTEGER_TYPE ID ASSIGN expression SEMI .)
+
+
+state 81
+
+    (10) variable_declaration -> FLOAT_TYPE ID ASSIGN expression SEMI .
+
+    INTEGER_TYPE    reduce using rule 10 (variable_declaration -> FLOAT_TYPE ID ASSIGN expression SEMI .)
+    FLOAT_TYPE      reduce using rule 10 (variable_declaration -> FLOAT_TYPE ID ASSIGN expression SEMI .)
+    STRING_TYPE     reduce using rule 10 (variable_declaration -> FLOAT_TYPE ID ASSIGN expression SEMI .)
+    FUNCTION        reduce using rule 10 (variable_declaration -> FLOAT_TYPE ID ASSIGN expression SEMI .)
+    WHEN            reduce using rule 10 (variable_declaration -> FLOAT_TYPE ID ASSIGN expression SEMI .)
+    LOOP            reduce using rule 10 (variable_declaration -> FLOAT_TYPE ID ASSIGN expression SEMI .)
+    OUT             reduce using rule 10 (variable_declaration -> FLOAT_TYPE ID ASSIGN expression SEMI .)
+    $end            reduce using rule 10 (variable_declaration -> FLOAT_TYPE ID ASSIGN expression SEMI .)
+    RBRACE          reduce using rule 10 (variable_declaration -> FLOAT_TYPE ID ASSIGN expression SEMI .)
+    RETURN          reduce using rule 10 (variable_declaration -> FLOAT_TYPE ID ASSIGN expression SEMI .)
+
+
+state 82
+
+    (11) variable_declaration -> STRING_TYPE ID ASSIGN TXT SEMI .
+
+    INTEGER_TYPE    reduce using rule 11 (variable_declaration -> STRING_TYPE ID ASSIGN TXT SEMI .)
+    FLOAT_TYPE      reduce using rule 11 (variable_declaration -> STRING_TYPE ID ASSIGN TXT SEMI .)
+    STRING_TYPE     reduce using rule 11 (variable_declaration -> STRING_TYPE ID ASSIGN TXT SEMI .)
+    FUNCTION        reduce using rule 11 (variable_declaration -> STRING_TYPE ID ASSIGN TXT SEMI .)
+    WHEN            reduce using rule 11 (variable_declaration -> STRING_TYPE ID ASSIGN TXT SEMI .)
+    LOOP            reduce using rule 11 (variable_declaration -> STRING_TYPE ID ASSIGN TXT SEMI .)
+    OUT             reduce using rule 11 (variable_declaration -> STRING_TYPE ID ASSIGN TXT SEMI .)
+    $end            reduce using rule 11 (variable_declaration -> STRING_TYPE ID ASSIGN TXT SEMI .)
+    RBRACE          reduce using rule 11 (variable_declaration -> STRING_TYPE ID ASSIGN TXT SEMI .)
+    RETURN          reduce using rule 11 (variable_declaration -> STRING_TYPE ID ASSIGN TXT SEMI .)
+
+
+state 83
+
+    (12) function_declaration -> FUNCTION ID LPAREN parameters RPAREN . LBRACE declarations return_statement RBRACE
+    (13) function_declaration -> FUNCTION ID LPAREN parameters RPAREN . LBRACE declarations RBRACE
+
+    LBRACE          shift and go to state 92
+
+
+state 84
+
+    (15) parameters -> parameters COMA . parameter
+    (17) parameter -> . INTEGER_TYPE ID
+    (18) parameter -> . FLOAT_TYPE ID
+    (19) parameter -> . STRING_TYPE ID
+
+    INTEGER_TYPE    shift and go to state 60
+    FLOAT_TYPE      shift and go to state 61
+    STRING_TYPE     shift and go to state 62
+
+    parameter                      shift and go to state 93
+
+state 85
+
+    (17) parameter -> INTEGER_TYPE ID .
+
+    RPAREN          reduce using rule 17 (parameter -> INTEGER_TYPE ID .)
+    COMA            reduce using rule 17 (parameter -> INTEGER_TYPE ID .)
+
+
+state 86
+
+    (18) parameter -> FLOAT_TYPE ID .
+
+    RPAREN          reduce using rule 18 (parameter -> FLOAT_TYPE ID .)
+    COMA            reduce using rule 18 (parameter -> FLOAT_TYPE ID .)
+
+
+state 87
+
+    (19) parameter -> STRING_TYPE ID .
+
+    RPAREN          reduce using rule 19 (parameter -> STRING_TYPE ID .)
+    COMA            reduce using rule 19 (parameter -> STRING_TYPE ID .)
+
+
+state 88
+
+    (21) conditional -> WHEN logical_expression LBRACE declarations RBRACE . ELSE LBRACE declarations RBRACE
+    (22) conditional -> WHEN logical_expression LBRACE declarations RBRACE .
+
+    ELSE            shift and go to state 94
+    INTEGER_TYPE    reduce using rule 22 (conditional -> WHEN logical_expression LBRACE declarations RBRACE .)
+    FLOAT_TYPE      reduce using rule 22 (conditional -> WHEN logical_expression LBRACE declarations RBRACE .)
+    STRING_TYPE     reduce using rule 22 (conditional -> WHEN logical_expression LBRACE declarations RBRACE .)
+    FUNCTION        reduce using rule 22 (conditional -> WHEN logical_expression LBRACE declarations RBRACE .)
+    WHEN            reduce using rule 22 (conditional -> WHEN logical_expression LBRACE declarations RBRACE .)
+    LOOP            reduce using rule 22 (conditional -> WHEN logical_expression LBRACE declarations RBRACE .)
+    OUT             reduce using rule 22 (conditional -> WHEN logical_expression LBRACE declarations RBRACE .)
+    $end            reduce using rule 22 (conditional -> WHEN logical_expression LBRACE declarations RBRACE .)
+    RBRACE          reduce using rule 22 (conditional -> WHEN logical_expression LBRACE declarations RBRACE .)
+    RETURN          reduce using rule 22 (conditional -> WHEN logical_expression LBRACE declarations RBRACE .)
+
+
+state 89
+
+    (30) function_call -> ID LPAREN arguments RPAREN .
+
+    GT              reduce using rule 30 (function_call -> ID LPAREN arguments RPAREN .)
+    LT              reduce using rule 30 (function_call -> ID LPAREN arguments RPAREN .)
+    EQ              reduce using rule 30 (function_call -> ID LPAREN arguments RPAREN .)
+    PLUS            reduce using rule 30 (function_call -> ID LPAREN arguments RPAREN .)
+    MINUS           reduce using rule 30 (function_call -> ID LPAREN arguments RPAREN .)
+    SEMI            reduce using rule 30 (function_call -> ID LPAREN arguments RPAREN .)
+    RPAREN          reduce using rule 30 (function_call -> ID LPAREN arguments RPAREN .)
+    LBRACE          reduce using rule 30 (function_call -> ID LPAREN arguments RPAREN .)
+    OR              reduce using rule 30 (function_call -> ID LPAREN arguments RPAREN .)
+    AND             reduce using rule 30 (function_call -> ID LPAREN arguments RPAREN .)
+    COMA            reduce using rule 30 (function_call -> ID LPAREN arguments RPAREN .)
+
+
+state 90
+
+    (32) arguments -> arguments COMA . expression
+    (26) expression -> . term
+    (27) expression -> . expression PLUS term
+    (28) expression -> . expression MINUS term
+    (29) expression -> . function_call
+    (34) term -> . factor
+    (35) term -> . term TIMES factor
+    (36) term -> . term DIVIDE factor
+    (37) term -> . term MOD factor
+    (30) function_call -> . ID LPAREN arguments RPAREN
+    (38) factor -> . NUM
+    (39) factor -> . DEC
+    (40) factor -> . ID
+    (41) factor -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 27
+    NUM             shift and go to state 29
+    DEC             shift and go to state 30
+    LPAREN          shift and go to state 28
+
+    expression                     shift and go to state 95
+    term                           shift and go to state 24
+    function_call                  shift and go to state 25
+    factor                         shift and go to state 26
+
+state 91
+
+    (23) loop -> LOOP ID LPAREN expression COMA . expression RPAREN LBRACE declarations RBRACE
+    (26) expression -> . term
+    (27) expression -> . expression PLUS term
+    (28) expression -> . expression MINUS term
+    (29) expression -> . function_call
+    (34) term -> . factor
+    (35) term -> . term TIMES factor
+    (36) term -> . term DIVIDE factor
+    (37) term -> . term MOD factor
+    (30) function_call -> . ID LPAREN arguments RPAREN
+    (38) factor -> . NUM
+    (39) factor -> . DEC
+    (40) factor -> . ID
+    (41) factor -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 27
+    NUM             shift and go to state 29
+    DEC             shift and go to state 30
+    LPAREN          shift and go to state 28
+
+    expression                     shift and go to state 96
+    term                           shift and go to state 24
+    function_call                  shift and go to state 25
+    factor                         shift and go to state 26
+
+state 92
+
+    (12) function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE . declarations return_statement RBRACE
+    (13) function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE . declarations RBRACE
+    (2) declarations -> . declaration
+    (3) declarations -> . declarations declaration
+    (4) declaration -> . variable_declaration
+    (5) declaration -> . function_declaration
+    (6) declaration -> . conditional
+    (7) declaration -> . loop
+    (8) declaration -> . output
+    (9) variable_declaration -> . INTEGER_TYPE ID ASSIGN expression SEMI
+    (10) variable_declaration -> . FLOAT_TYPE ID ASSIGN expression SEMI
+    (11) variable_declaration -> . STRING_TYPE ID ASSIGN TXT SEMI
+    (12) function_declaration -> . FUNCTION ID LPAREN parameters RPAREN LBRACE declarations return_statement RBRACE
+    (13) function_declaration -> . FUNCTION ID LPAREN parameters RPAREN LBRACE declarations RBRACE
+    (21) conditional -> . WHEN logical_expression LBRACE declarations RBRACE ELSE LBRACE declarations RBRACE
+    (22) conditional -> . WHEN logical_expression LBRACE declarations RBRACE
+    (23) loop -> . LOOP ID LPAREN expression COMA expression RPAREN LBRACE declarations RBRACE
+    (24) output -> . OUT expression SEMI
+    (25) output -> . OUT TXT SEMI
+
+    INTEGER_TYPE    shift and go to state 9
+    FLOAT_TYPE      shift and go to state 10
+    STRING_TYPE     shift and go to state 11
+    FUNCTION        shift and go to state 12
+    WHEN            shift and go to state 13
+    LOOP            shift and go to state 14
+    OUT             shift and go to state 15
+
+    declarations                   shift and go to state 97
+    declaration                    shift and go to state 3
+    variable_declaration           shift and go to state 4
+    function_declaration           shift and go to state 5
+    conditional                    shift and go to state 6
+    loop                           shift and go to state 7
+    output                         shift and go to state 8
+
+state 93
+
+    (15) parameters -> parameters COMA parameter .
+
+    RPAREN          reduce using rule 15 (parameters -> parameters COMA parameter .)
+    COMA            reduce using rule 15 (parameters -> parameters COMA parameter .)
+
+
+state 94
+
+    (21) conditional -> WHEN logical_expression LBRACE declarations RBRACE ELSE . LBRACE declarations RBRACE
+
+    LBRACE          shift and go to state 98
+
+
+state 95
+
+    (32) arguments -> arguments COMA expression .
+    (27) expression -> expression . PLUS term
+    (28) expression -> expression . MINUS term
+
+    RPAREN          reduce using rule 32 (arguments -> arguments COMA expression .)
+    COMA            reduce using rule 32 (arguments -> arguments COMA expression .)
+    PLUS            shift and go to state 44
+    MINUS           shift and go to state 45
+
+
+state 96
+
+    (23) loop -> LOOP ID LPAREN expression COMA expression . RPAREN LBRACE declarations RBRACE
+    (27) expression -> expression . PLUS term
+    (28) expression -> expression . MINUS term
+
+    RPAREN          shift and go to state 99
+    PLUS            shift and go to state 44
+    MINUS           shift and go to state 45
+
+
+state 97
+
+    (12) function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE declarations . return_statement RBRACE
+    (13) function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE declarations . RBRACE
+    (3) declarations -> declarations . declaration
+    (20) return_statement -> . RETURN expression SEMI
+    (4) declaration -> . variable_declaration
+    (5) declaration -> . function_declaration
+    (6) declaration -> . conditional
+    (7) declaration -> . loop
+    (8) declaration -> . output
+    (9) variable_declaration -> . INTEGER_TYPE ID ASSIGN expression SEMI
+    (10) variable_declaration -> . FLOAT_TYPE ID ASSIGN expression SEMI
+    (11) variable_declaration -> . STRING_TYPE ID ASSIGN TXT SEMI
+    (12) function_declaration -> . FUNCTION ID LPAREN parameters RPAREN LBRACE declarations return_statement RBRACE
+    (13) function_declaration -> . FUNCTION ID LPAREN parameters RPAREN LBRACE declarations RBRACE
+    (21) conditional -> . WHEN logical_expression LBRACE declarations RBRACE ELSE LBRACE declarations RBRACE
+    (22) conditional -> . WHEN logical_expression LBRACE declarations RBRACE
+    (23) loop -> . LOOP ID LPAREN expression COMA expression RPAREN LBRACE declarations RBRACE
+    (24) output -> . OUT expression SEMI
+    (25) output -> . OUT TXT SEMI
+
+    RBRACE          shift and go to state 101
+    RETURN          shift and go to state 102
+    INTEGER_TYPE    shift and go to state 9
+    FLOAT_TYPE      shift and go to state 10
+    STRING_TYPE     shift and go to state 11
+    FUNCTION        shift and go to state 12
+    WHEN            shift and go to state 13
+    LOOP            shift and go to state 14
+    OUT             shift and go to state 15
+
+    return_statement               shift and go to state 100
+    declaration                    shift and go to state 16
+    variable_declaration           shift and go to state 4
+    function_declaration           shift and go to state 5
+    conditional                    shift and go to state 6
+    loop                           shift and go to state 7
+    output                         shift and go to state 8
+
+state 98
+
+    (21) conditional -> WHEN logical_expression LBRACE declarations RBRACE ELSE LBRACE . declarations RBRACE
+    (2) declarations -> . declaration
+    (3) declarations -> . declarations declaration
+    (4) declaration -> . variable_declaration
+    (5) declaration -> . function_declaration
+    (6) declaration -> . conditional
+    (7) declaration -> . loop
+    (8) declaration -> . output
+    (9) variable_declaration -> . INTEGER_TYPE ID ASSIGN expression SEMI
+    (10) variable_declaration -> . FLOAT_TYPE ID ASSIGN expression SEMI
+    (11) variable_declaration -> . STRING_TYPE ID ASSIGN TXT SEMI
+    (12) function_declaration -> . FUNCTION ID LPAREN parameters RPAREN LBRACE declarations return_statement RBRACE
+    (13) function_declaration -> . FUNCTION ID LPAREN parameters RPAREN LBRACE declarations RBRACE
+    (21) conditional -> . WHEN logical_expression LBRACE declarations RBRACE ELSE LBRACE declarations RBRACE
+    (22) conditional -> . WHEN logical_expression LBRACE declarations RBRACE
+    (23) loop -> . LOOP ID LPAREN expression COMA expression RPAREN LBRACE declarations RBRACE
+    (24) output -> . OUT expression SEMI
+    (25) output -> . OUT TXT SEMI
+
+    INTEGER_TYPE    shift and go to state 9
+    FLOAT_TYPE      shift and go to state 10
+    STRING_TYPE     shift and go to state 11
+    FUNCTION        shift and go to state 12
+    WHEN            shift and go to state 13
+    LOOP            shift and go to state 14
+    OUT             shift and go to state 15
+
+    declarations                   shift and go to state 103
+    declaration                    shift and go to state 3
+    variable_declaration           shift and go to state 4
+    function_declaration           shift and go to state 5
+    conditional                    shift and go to state 6
+    loop                           shift and go to state 7
+    output                         shift and go to state 8
+
+state 99
+
+    (23) loop -> LOOP ID LPAREN expression COMA expression RPAREN . LBRACE declarations RBRACE
+
+    LBRACE          shift and go to state 104
+
+
+state 100
+
+    (12) function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE declarations return_statement . RBRACE
+
+    RBRACE          shift and go to state 105
+
+
+state 101
+
+    (13) function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE declarations RBRACE .
+
+    INTEGER_TYPE    reduce using rule 13 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE declarations RBRACE .)
+    FLOAT_TYPE      reduce using rule 13 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE declarations RBRACE .)
+    STRING_TYPE     reduce using rule 13 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE declarations RBRACE .)
+    FUNCTION        reduce using rule 13 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE declarations RBRACE .)
+    WHEN            reduce using rule 13 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE declarations RBRACE .)
+    LOOP            reduce using rule 13 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE declarations RBRACE .)
+    OUT             reduce using rule 13 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE declarations RBRACE .)
+    $end            reduce using rule 13 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE declarations RBRACE .)
+    RBRACE          reduce using rule 13 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE declarations RBRACE .)
+    RETURN          reduce using rule 13 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE declarations RBRACE .)
+
+
+state 102
+
+    (20) return_statement -> RETURN . expression SEMI
+    (26) expression -> . term
+    (27) expression -> . expression PLUS term
+    (28) expression -> . expression MINUS term
+    (29) expression -> . function_call
+    (34) term -> . factor
+    (35) term -> . term TIMES factor
+    (36) term -> . term DIVIDE factor
+    (37) term -> . term MOD factor
+    (30) function_call -> . ID LPAREN arguments RPAREN
+    (38) factor -> . NUM
+    (39) factor -> . DEC
+    (40) factor -> . ID
+    (41) factor -> . LPAREN expression RPAREN
+
+    ID              shift and go to state 27
+    NUM             shift and go to state 29
+    DEC             shift and go to state 30
+    LPAREN          shift and go to state 28
+
+    expression                     shift and go to state 106
+    term                           shift and go to state 24
+    function_call                  shift and go to state 25
+    factor                         shift and go to state 26
+
+state 103
+
+    (21) conditional -> WHEN logical_expression LBRACE declarations RBRACE ELSE LBRACE declarations . RBRACE
+    (3) declarations -> declarations . declaration
+    (4) declaration -> . variable_declaration
+    (5) declaration -> . function_declaration
+    (6) declaration -> . conditional
+    (7) declaration -> . loop
+    (8) declaration -> . output
+    (9) variable_declaration -> . INTEGER_TYPE ID ASSIGN expression SEMI
+    (10) variable_declaration -> . FLOAT_TYPE ID ASSIGN expression SEMI
+    (11) variable_declaration -> . STRING_TYPE ID ASSIGN TXT SEMI
+    (12) function_declaration -> . FUNCTION ID LPAREN parameters RPAREN LBRACE declarations return_statement RBRACE
+    (13) function_declaration -> . FUNCTION ID LPAREN parameters RPAREN LBRACE declarations RBRACE
+    (21) conditional -> . WHEN logical_expression LBRACE declarations RBRACE ELSE LBRACE declarations RBRACE
+    (22) conditional -> . WHEN logical_expression LBRACE declarations RBRACE
+    (23) loop -> . LOOP ID LPAREN expression COMA expression RPAREN LBRACE declarations RBRACE
+    (24) output -> . OUT expression SEMI
+    (25) output -> . OUT TXT SEMI
+
+    RBRACE          shift and go to state 107
+    INTEGER_TYPE    shift and go to state 9
+    FLOAT_TYPE      shift and go to state 10
+    STRING_TYPE     shift and go to state 11
+    FUNCTION        shift and go to state 12
+    WHEN            shift and go to state 13
+    LOOP            shift and go to state 14
+    OUT             shift and go to state 15
+
+    declaration                    shift and go to state 16
+    variable_declaration           shift and go to state 4
+    function_declaration           shift and go to state 5
+    conditional                    shift and go to state 6
+    loop                           shift and go to state 7
+    output                         shift and go to state 8
+
+state 104
+
+    (23) loop -> LOOP ID LPAREN expression COMA expression RPAREN LBRACE . declarations RBRACE
+    (2) declarations -> . declaration
+    (3) declarations -> . declarations declaration
+    (4) declaration -> . variable_declaration
+    (5) declaration -> . function_declaration
+    (6) declaration -> . conditional
+    (7) declaration -> . loop
+    (8) declaration -> . output
+    (9) variable_declaration -> . INTEGER_TYPE ID ASSIGN expression SEMI
+    (10) variable_declaration -> . FLOAT_TYPE ID ASSIGN expression SEMI
+    (11) variable_declaration -> . STRING_TYPE ID ASSIGN TXT SEMI
+    (12) function_declaration -> . FUNCTION ID LPAREN parameters RPAREN LBRACE declarations return_statement RBRACE
+    (13) function_declaration -> . FUNCTION ID LPAREN parameters RPAREN LBRACE declarations RBRACE
+    (21) conditional -> . WHEN logical_expression LBRACE declarations RBRACE ELSE LBRACE declarations RBRACE
+    (22) conditional -> . WHEN logical_expression LBRACE declarations RBRACE
+    (23) loop -> . LOOP ID LPAREN expression COMA expression RPAREN LBRACE declarations RBRACE
+    (24) output -> . OUT expression SEMI
+    (25) output -> . OUT TXT SEMI
+
+    INTEGER_TYPE    shift and go to state 9
+    FLOAT_TYPE      shift and go to state 10
+    STRING_TYPE     shift and go to state 11
+    FUNCTION        shift and go to state 12
+    WHEN            shift and go to state 13
+    LOOP            shift and go to state 14
+    OUT             shift and go to state 15
+
+    declarations                   shift and go to state 108
+    declaration                    shift and go to state 3
+    variable_declaration           shift and go to state 4
+    function_declaration           shift and go to state 5
+    conditional                    shift and go to state 6
+    loop                           shift and go to state 7
+    output                         shift and go to state 8
+
+state 105
+
+    (12) function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE declarations return_statement RBRACE .
+
+    INTEGER_TYPE    reduce using rule 12 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE declarations return_statement RBRACE .)
+    FLOAT_TYPE      reduce using rule 12 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE declarations return_statement RBRACE .)
+    STRING_TYPE     reduce using rule 12 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE declarations return_statement RBRACE .)
+    FUNCTION        reduce using rule 12 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE declarations return_statement RBRACE .)
+    WHEN            reduce using rule 12 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE declarations return_statement RBRACE .)
+    LOOP            reduce using rule 12 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE declarations return_statement RBRACE .)
+    OUT             reduce using rule 12 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE declarations return_statement RBRACE .)
+    $end            reduce using rule 12 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE declarations return_statement RBRACE .)
+    RBRACE          reduce using rule 12 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE declarations return_statement RBRACE .)
+    RETURN          reduce using rule 12 (function_declaration -> FUNCTION ID LPAREN parameters RPAREN LBRACE declarations return_statement RBRACE .)
+
+
+state 106
+
+    (20) return_statement -> RETURN expression . SEMI
+    (27) expression -> expression . PLUS term
+    (28) expression -> expression . MINUS term
+
+    SEMI            shift and go to state 109
+    PLUS            shift and go to state 44
+    MINUS           shift and go to state 45
+
+
+state 107
+
+    (21) conditional -> WHEN logical_expression LBRACE declarations RBRACE ELSE LBRACE declarations RBRACE .
+
+    INTEGER_TYPE    reduce using rule 21 (conditional -> WHEN logical_expression LBRACE declarations RBRACE ELSE LBRACE declarations RBRACE .)
+    FLOAT_TYPE      reduce using rule 21 (conditional -> WHEN logical_expression LBRACE declarations RBRACE ELSE LBRACE declarations RBRACE .)
+    STRING_TYPE     reduce using rule 21 (conditional -> WHEN logical_expression LBRACE declarations RBRACE ELSE LBRACE declarations RBRACE .)
+    FUNCTION        reduce using rule 21 (conditional -> WHEN logical_expression LBRACE declarations RBRACE ELSE LBRACE declarations RBRACE .)
+    WHEN            reduce using rule 21 (conditional -> WHEN logical_expression LBRACE declarations RBRACE ELSE LBRACE declarations RBRACE .)
+    LOOP            reduce using rule 21 (conditional -> WHEN logical_expression LBRACE declarations RBRACE ELSE LBRACE declarations RBRACE .)
+    OUT             reduce using rule 21 (conditional -> WHEN logical_expression LBRACE declarations RBRACE ELSE LBRACE declarations RBRACE .)
+    $end            reduce using rule 21 (conditional -> WHEN logical_expression LBRACE declarations RBRACE ELSE LBRACE declarations RBRACE .)
+    RBRACE          reduce using rule 21 (conditional -> WHEN logical_expression LBRACE declarations RBRACE ELSE LBRACE declarations RBRACE .)
+    RETURN          reduce using rule 21 (conditional -> WHEN logical_expression LBRACE declarations RBRACE ELSE LBRACE declarations RBRACE .)
+
+
+state 108
+
+    (23) loop -> LOOP ID LPAREN expression COMA expression RPAREN LBRACE declarations . RBRACE
+    (3) declarations -> declarations . declaration
+    (4) declaration -> . variable_declaration
+    (5) declaration -> . function_declaration
+    (6) declaration -> . conditional
+    (7) declaration -> . loop
+    (8) declaration -> . output
+    (9) variable_declaration -> . INTEGER_TYPE ID ASSIGN expression SEMI
+    (10) variable_declaration -> . FLOAT_TYPE ID ASSIGN expression SEMI
+    (11) variable_declaration -> . STRING_TYPE ID ASSIGN TXT SEMI
+    (12) function_declaration -> . FUNCTION ID LPAREN parameters RPAREN LBRACE declarations return_statement RBRACE
+    (13) function_declaration -> . FUNCTION ID LPAREN parameters RPAREN LBRACE declarations RBRACE
+    (21) conditional -> . WHEN logical_expression LBRACE declarations RBRACE ELSE LBRACE declarations RBRACE
+    (22) conditional -> . WHEN logical_expression LBRACE declarations RBRACE
+    (23) loop -> . LOOP ID LPAREN expression COMA expression RPAREN LBRACE declarations RBRACE
+    (24) output -> . OUT expression SEMI
+    (25) output -> . OUT TXT SEMI
+
+    RBRACE          shift and go to state 110
+    INTEGER_TYPE    shift and go to state 9
+    FLOAT_TYPE      shift and go to state 10
+    STRING_TYPE     shift and go to state 11
+    FUNCTION        shift and go to state 12
+    WHEN            shift and go to state 13
+    LOOP            shift and go to state 14
+    OUT             shift and go to state 15
+
+    declaration                    shift and go to state 16
+    variable_declaration           shift and go to state 4
+    function_declaration           shift and go to state 5
+    conditional                    shift and go to state 6
+    loop                           shift and go to state 7
+    output                         shift and go to state 8
+
+state 109
+
+    (20) return_statement -> RETURN expression SEMI .
+
+    RBRACE          reduce using rule 20 (return_statement -> RETURN expression SEMI .)
+
+
+state 110
+
+    (23) loop -> LOOP ID LPAREN expression COMA expression RPAREN LBRACE declarations RBRACE .
+
+    INTEGER_TYPE    reduce using rule 23 (loop -> LOOP ID LPAREN expression COMA expression RPAREN LBRACE declarations RBRACE .)
+    FLOAT_TYPE      reduce using rule 23 (loop -> LOOP ID LPAREN expression COMA expression RPAREN LBRACE declarations RBRACE .)
+    STRING_TYPE     reduce using rule 23 (loop -> LOOP ID LPAREN expression COMA expression RPAREN LBRACE declarations RBRACE .)
+    FUNCTION        reduce using rule 23 (loop -> LOOP ID LPAREN expression COMA expression RPAREN LBRACE declarations RBRACE .)
+    WHEN            reduce using rule 23 (loop -> LOOP ID LPAREN expression COMA expression RPAREN LBRACE declarations RBRACE .)
+    LOOP            reduce using rule 23 (loop -> LOOP ID LPAREN expression COMA expression RPAREN LBRACE declarations RBRACE .)
+    OUT             reduce using rule 23 (loop -> LOOP ID LPAREN expression COMA expression RPAREN LBRACE declarations RBRACE .)
+    $end            reduce using rule 23 (loop -> LOOP ID LPAREN expression COMA expression RPAREN LBRACE declarations RBRACE .)
+    RBRACE          reduce using rule 23 (loop -> LOOP ID LPAREN expression COMA expression RPAREN LBRACE declarations RBRACE .)
+    RETURN          reduce using rule 23 (loop -> LOOP ID LPAREN expression COMA expression RPAREN LBRACE declarations RBRACE .)
+

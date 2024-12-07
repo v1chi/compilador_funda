@@ -1,0 +1,10 @@
+number x = 5;
+number y = 10;
+number z = x + y;
+decimal a = 3.5;
+decimal b = 2.5;
+decimal c = a * b;
+text greeting = "hola mundooo!";
+out z;
+out c;
+out greeting;

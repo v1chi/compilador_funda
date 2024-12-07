@@ -1,0 +1,15 @@
+function add(number x, number y) {
+    number suma = x + y;
+    return suma;
+}
+
+number result = add(7, 3);
+out result;
+
+function multiply(number x, number y) {
+    number producto = x * y;
+    return producto;
+}
+
+number product_result = multiply(4, 5);
+out product_result;

@@ -1,0 +1,13 @@
+number i = 0;
+loop i (1, 5) {
+    number result = i * 2;
+    out result;
+}
+
+number a = 10;
+number b = 20;
+when a < b {
+    out "a menor que b";
+} else {
+    out "a mayor que b";
+}
